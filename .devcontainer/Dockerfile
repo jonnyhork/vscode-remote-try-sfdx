@@ -9,18 +9,14 @@ RUN echo 'f6d5a254de2734ad9e7b9b02777d47a9a7454059e2d5690cf25c5ea57280f060  ./no
 RUN apt-get install --assume-yes \
     ./nodejs.deb \ 
     openjdk-11-jdk-headless=11.0.4+11-1ubuntu2~18.04.3
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash \
-    && mkdir ~/.global \
-    && export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH" \
-    && yarn config set prefix ~/.global \
-    && npm config set prefix ~/.global \
-    && yarn global add sfdx-cli@${SALESFORCE_CLI_VERSION} \
+RUN mkdir ~/.sfdx-cli \
+    && wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ -C ~/.sfdx-cli --strip-components 1 \
     && rm nodejs.deb node-file-lock.sha
 RUN apt-get autoremove --assume-yes \
     && apt-get clean --assume-yes \
     && rm -rf /var/lib/apt/lists/* 
 
-ENV PATH="~/.global/bin:$PATH"
+ENV PATH="~/.sfdx-cli/bin:$PATH"
 ENV SFDX_CONTAINER_MODE true
 ENV DEBIAN_FRONTEND=dialog
 ENV SHELL /bin/bash
