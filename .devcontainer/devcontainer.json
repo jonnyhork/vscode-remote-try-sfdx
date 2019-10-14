@@ -9,5 +9,6 @@
   ],
   "settings": {
     "salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/java-11-openjdk-amd64"
-  }
+  },
+  "postCreateCommand": "mkdir ~/.global && yarn config set prefix ~/.global"
 }
