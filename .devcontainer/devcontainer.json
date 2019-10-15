@@ -11,5 +11,5 @@
     "salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/java-11-openjdk-amd64"
   },
   // this post create command is required for VS Code Online.
-  "postCreateCommand": "npm config set prefix \"~/.global\" && ./.devcontainer/installSfdxCli.sh && echo \"export SFDX_CONTAINER_MODE=true >> ~/.bashrc\""
+  "postCreateCommand": "npm config set prefix \"~/.global\" && ./.devcontainer/installSfdxCli.sh && echo \"export SFDX_CONTAINER_MODE=true\" >> ~/.bashrc"
 }
