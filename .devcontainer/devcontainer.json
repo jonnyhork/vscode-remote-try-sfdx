@@ -1,6 +1,6 @@
 {
   "name": "Salesforce Project",
-  "customContainers": "true",
+  "customContainers": true,
   "dockerFile": "Dockerfile",
   "extensions": [
     "salesforce.salesforcedx-vscode",
